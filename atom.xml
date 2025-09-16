@@ -40,29 +40,6 @@
   </entry>
   
   <entry>
-    <title>About me</title>
-    <link href="http://example.com/2025/09/17/about/About-me/"/>
-    <id>http://example.com/2025/09/17/about/About-me/</id>
-    <published>2025-09-16T17:20:23.000Z</published>
-    <updated>2025-09-16T17:29:31.892Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;A-developer&quot;&gt;&lt;a href=&quot;#A-developer&quot; class=&quot;headerlink&quot; title=&quot;A developer&quot;&gt;&lt;/a&gt;A</summary>
-        
-      
-    
-    
-    
-    
-    <category term="About" scheme="http://example.com/tags/About/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Hello World</title>
     <link href="http://example.com/2025/09/16/hello-world/"/>
     <id>http://example.com/2025/09/16/hello-world/</id>
