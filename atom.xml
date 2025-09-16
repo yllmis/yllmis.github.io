@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>yllmis的博客</title>
+  
+  <subtitle>锦松</subtitle>
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2025-09-16T17:36:55.535Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>yllmis</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>About me</title>
+    <link href="http://example.com/2025/09/17/About-me/"/>
+    <id>http://example.com/2025/09/17/About-me/</id>
+    <published>2025-09-16T17:36:55.535Z</published>
+    <updated>2025-09-16T17:36:55.535Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;A-developer&quot;&gt;&lt;a href=&quot;#A-developer&quot; class=&quot;headerlink&quot; title=&quot;A developer&quot;&gt;&lt;/a&gt;A</summary>
+        
+      
+    
+    
+    
+    
+    <category term="About" scheme="http://example.com/tags/About/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>About me</title>
+    <link href="http://example.com/2025/09/17/about/About-me/"/>
+    <id>http://example.com/2025/09/17/about/About-me/</id>
+    <published>2025-09-16T17:20:23.000Z</published>
+    <updated>2025-09-16T17:29:31.892Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;A-developer&quot;&gt;&lt;a href=&quot;#A-developer&quot; class=&quot;headerlink&quot; title=&quot;A developer&quot;&gt;&lt;/a&gt;A</summary>
+        
+      
+    
+    
+    
+    
+    <category term="About" scheme="http://example.com/tags/About/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://example.com/2025/09/16/hello-world/"/>
+    <id>http://example.com/2025/09/16/hello-world/</id>
+    <published>2025-09-16T15:21:50.378Z</published>
+    <updated>2025-09-16T17:38:46.495Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
