@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 
-<html lang="zh">
+<html lang="zh-CN">
   
 
     <head>
@@ -103,22 +103,6 @@
   
 <div id="main">
   <section class="outer">
-  
-  <ul class="ads">
-    
-        <li>
-            <a target="_blank" rel="noopener" href="https://curl.qcloud.com/kvO7hb43">
-                <img src="https://pic.imgdb.cn/item/62174b452ab3f51d912a5ccc.jpg" width="300" alt="云服务器限时秒杀">
-            </a>
-        </li>
-    
-        <li>
-            <a target="_blank" rel="noopener" href="https://www.vultr.com/?ref=8630075">
-                <img src="https://pic.imgdb.cn/item/62174b452ab3f51d912a5cd7.png" width="300" alt="vultr优惠vps">
-            </a>
-        </li>
-    
-</ul>
   
   
   
@@ -592,84 +576,6 @@
 
     
     <article
-  id="post-js/pjax"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-     
-    <div class="article-meta">
-      <a href="/2025/09/16/js/pjax/" class="article-date">
-  <time datetime="2025-09-16T15:18:47.530Z" itemprop="datePublished">2025-09-16</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  (function() {
-    // eslint-disable-next-line no-unused-vars
-    let pjax;
-
-    function initPjax() {
-        try {
-            const Pjax = window.Pjax || function() {};
-            pjax = new Pjax({
-                selectors: [
-                    '[data-pjax]',
-                    '.pjax-reload',
-                    'head title',
-                    '.columns',
-                    '.navbar-start',
-                    '.navbar-end',
-                    '.searchbox link',
-                    '.searchbox script',
-                    '#back-to-top',
-                    '#comments link',
-                    '#comments script'
-                ],
-                cacheBust: false
-            });
-        } catch (e) {
-            console.warn('PJAX error: ' + e);
-        }
-    }
-
-    // // Listen for start of Pjax
-    // document.addEventListener('pjax:send', function() {
-    //     return;
-    //     // TODO pace start loading animation
-    // })
-
-    // // Listen for completion of Pjax
-    // document.addEventListener('pjax:complete', function() {
-    //     return;
-    //     // TODO pace stop loading animation
-    // })
-
-    document.addEventListener('DOMContentLoaded', () => initPjax());
-}());
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
   id="post-js/main"
   class="article article-type-post"
   itemscope
@@ -825,6 +731,84 @@
         $('.navbar-main .catalogue').on('click', toggleToc);
     }
 }(jQuery, window.moment, window.ClipboardJS, window.IcarusThemeSettings));
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-js/pjax"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+     
+    <div class="article-meta">
+      <a href="/2025/09/16/js/pjax/" class="article-date">
+  <time datetime="2025-09-16T15:18:47.530Z" itemprop="datePublished">2025-09-16</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  (function() {
+    // eslint-disable-next-line no-unused-vars
+    let pjax;
+
+    function initPjax() {
+        try {
+            const Pjax = window.Pjax || function() {};
+            pjax = new Pjax({
+                selectors: [
+                    '[data-pjax]',
+                    '.pjax-reload',
+                    'head title',
+                    '.columns',
+                    '.navbar-start',
+                    '.navbar-end',
+                    '.searchbox link',
+                    '.searchbox script',
+                    '#back-to-top',
+                    '#comments link',
+                    '#comments script'
+                ],
+                cacheBust: false
+            });
+        } catch (e) {
+            console.warn('PJAX error: ' + e);
+        }
+    }
+
+    // // Listen for start of Pjax
+    // document.addEventListener('pjax:send', function() {
+    //     return;
+    //     // TODO pace start loading animation
+    // })
+
+    // // Listen for completion of Pjax
+    // document.addEventListener('pjax:complete', function() {
+    //     return;
+    //     // TODO pace stop loading animation
+    // })
+
+    document.addEventListener('DOMContentLoaded', () => initPjax());
+}());
  
       <!-- reward -->
       
@@ -1581,9 +1565,9 @@ function loadInsight(config, translation) {
         
         
         <span>
-  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
   <span class="division">|</span>
-  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
 </span>
         
       </li>
@@ -1663,7 +1647,7 @@ function loadInsight(config, translation) {
   <ul class="nav">
     <li class="nav-item">
       
-      <a class="nav-item-link nav-item-search"  title="Search">
+      <a class="nav-item-link nav-item-search"  title="搜索">
         <i class="ri-search-line"></i>
       </a>
       
