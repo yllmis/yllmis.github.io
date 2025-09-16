@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>Archives |  yllmis的博客</title>
+      <title> yllmis的博客</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -52,217 +52,238 @@
       
     <main class="content on">
       <section class="outer">
-  
-  <ul class="ads">
-    
-        <li>
-            <a target="_blank" rel="noopener" href="https://curl.qcloud.com/kvO7hb43">
-                <img src="https://pic.imgdb.cn/item/62174b452ab3f51d912a5ccc.jpg" width="300" alt="云服务器限时秒杀">
-            </a>
-        </li>
-    
-        <li>
-            <a target="_blank" rel="noopener" href="https://www.vultr.com/?ref=8630075">
-                <img src="https://pic.imgdb.cn/item/62174b452ab3f51d912a5cd7.png" width="300" alt="vultr优惠vps">
-            </a>
-        </li>
-    
-</ul>
-  
-  
-  <article class="articles">
-    
-    
-    <h1 class="page-type-title">Archives</h1>
-    
-    
-  
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2025" class="archive-year">2025</a>
-    </div>
-    <div class="archives">
-      
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2025/09/16/hello-world/" class="archive-article-date">
-  <time datetime="2025-09-16T15:21:50.378Z" itemprop="datePublished">09/16</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2025/09/16/hello-world/"
-    >Hello World</a> 
-</h2>
+  <article
+  id="post-js/toc"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+     
+    <div class="article-meta">
+      <a href="/2025/09/16/js/toc/" class="article-date">
+  <time datetime="2025-09-16T15:18:47.531Z" itemprop="datePublished">2025-09-16</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">263</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">1 min</span>
+        </span>
+    </span>
+</div>
  
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2025/09/16/tags/%E6%90%AD%E5%BB%BA/index/" class="archive-article-date">
-  <time datetime="2025-09-16T15:18:47.535Z" itemprop="datePublished">09/16</time>
-</a>
+    </div>
       
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2025/09/16/tags/index/" class="archive-article-date">
-  <time datetime="2025-09-16T15:18:47.534Z" itemprop="datePublished">09/16</time>
-</a>
-      
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2025/09/16/js/toc/" class="archive-article-date">
-  <time datetime="2025-09-16T15:18:47.531Z" itemprop="datePublished">09/16</time>
-</a>
-      
 
-    </header>
-    
-    
-  </div>
-</article>
-      
   
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2025/09/16/js/pjax/" class="archive-article-date">
-  <time datetime="2025-09-16T15:18:47.530Z" itemprop="datePublished">09/16</time>
-</a>
-      
+    <div class="article-entry" itemprop="articleBody">
+       
+  (function (window, document) {
+  function register($toc) {
+    const currentInView = new Set();
+    const headingToMenu = new Map();
+    const $menus = Array.from($toc.querySelectorAll('.menu-list > li > a'));
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2025/09/16/js/main/" class="archive-article-date">
-  <time datetime="2025-09-16T15:18:47.530Z" itemprop="datePublished">09/16</time>
-</a>
-      
+    for (const $menu of $menus) {
+      const elementId = $menu.getAttribute('href').trim().slice(1);
+      const $heading = document.getElementById(elementId);
+      if ($heading) {
+        headingToMenu.set($heading, $menu);
+      }
+    }
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2025/09/16/js/insight/" class="archive-article-date">
-  <time datetime="2025-09-16T15:18:47.529Z" itemprop="datePublished">09/16</time>
-</a>
-      
+    const $headings = Array.from(headingToMenu.keys());
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2025/09/16/js/google_cse/" class="archive-article-date">
-  <time datetime="2025-09-16T15:18:47.528Z" itemprop="datePublished">09/16</time>
-</a>
-      
+    const callback = (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          currentInView.add(entry.target);
+        } else {
+          currentInView.delete(entry.target);
+        }
+      }
+      let $heading;
+      if (currentInView.size) {
+        // heading is the first in-view heading
+        $heading = [...currentInView].sort(($el1, $el2) => $el1.offsetTop - $el2.offsetTop)[0];
+      } else if ($headings.length) {
+        // heading is the closest heading above the viewport top
+        $heading = $headings
+          .filter(($heading) => $heading.offsetTop < window.scrollY)
+          .sort(($el1, $el2) => $el2.offsetTop - $el1.offsetTop)[0];
+      }
+      if ($heading && headingToMenu.has($heading)) {
+        $menus.forEach(($menu) => $menu.classList.remove('is-active'));
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2025/09/16/js/column/" class="archive-article-date">
-  <time datetime="2025-09-16T15:18:47.527Z" itemprop="datePublished">09/16</time>
-</a>
-      
+        const $menu = headingToMenu.get($heading);
+        $menu.classList.add('is-active');
+        let $menuList = $menu.parentElement.parentElement;
+        while (
+          $menuList.classList.contains('menu-list') &&
+          $menuList.parentElement.tagName.toLowerCase() === 'li'
+        ) {
+          $menuList.parentElement.children[0].classList.add('is-active');
+          $menuList = $menuList.parentElement.parentElement;
+        }
+      }
+    };
+    const observer = new IntersectionObserver(callback, { threshold: 0 });
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2025/09/16/js/back_to_top/" class="archive-article-date">
-  <time datetime="2025-09-16T15:18:47.526Z" itemprop="datePublished">09/16</time>
-</a>
-      
+    for (const $heading of $headings) {
+      observer.observe($heading);
+      // smooth scroll to the heading
+      if (headingToMenu.has($heading)) {
+        const $menu = headingToMenu.get($heading);
+        $menu.setAttribute('data-href', $menu.getAttribute('href'));
+        $menu.setAttribute('href', 'javascript:;');
+        $menu.addEventListener('click', () => {
+          if (typeof $heading.scrollIntoView === 'function') {
+            $heading.scrollIntoView({ behavior: 'smooth' });
+          }
+          const anchor = $menu.getAttribute('data-href');
+          if (history.pushState) {
+            history.pushState(null, null, anchor);
+          } else {
+            location.hash = anchor;
+          }
+        });
+        $heading.style.scrollMargin = '1em';
+      }
+    }
+  }
 
-    </header>
-    
-    
-  </div>
-</article>
+  if (typeof window.IntersectionObserver === 'undefined') {
+    return;
+  }
+
+  document.querySelectorAll('#toc').forEach(register);
+})(window, document);
+ 
+      <!-- reward -->
       
+      <div id="reword-out">
+        <div id="reward-btn">
+          Donate
+        </div>
+      </div>
       
     </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2025/09/16/js/toc/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
   </div>
-  
-  
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2025/09/16/tags/index/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            (no title)
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2025/09/16/js/pjax/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title"></div>
+      </a>
+    
+  </nav>
 
   
-  <nav class="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">下一页</a>
-  </nav>
+   
   
+   
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
 </section>
       <footer class="footer">
   <div class="outer">
@@ -411,6 +432,22 @@
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
 
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 <link

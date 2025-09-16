@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>Archives |  yllmis的博客</title>
+      <title> yllmis的博客</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -52,217 +52,310 @@
       
     <main class="content on">
       <section class="outer">
-  
-  <ul class="ads">
-    
-        <li>
-            <a target="_blank" rel="noopener" href="https://curl.qcloud.com/kvO7hb43">
-                <img src="https://pic.imgdb.cn/item/62174b452ab3f51d912a5ccc.jpg" width="300" alt="云服务器限时秒杀">
-            </a>
-        </li>
-    
-        <li>
-            <a target="_blank" rel="noopener" href="https://www.vultr.com/?ref=8630075">
-                <img src="https://pic.imgdb.cn/item/62174b452ab3f51d912a5cd7.png" width="300" alt="vultr优惠vps">
-            </a>
-        </li>
-    
-</ul>
-  
-  
-  <article class="articles">
-    
-    
-    <h1 class="page-type-title">Archives</h1>
-    
-    
-  
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2025" class="archive-year">2025</a>
-    </div>
-    <div class="archives">
-      
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2025/09/16/hello-world/" class="archive-article-date">
-  <time datetime="2025-09-16T15:21:50.378Z" itemprop="datePublished">09/16</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2025/09/16/hello-world/"
-    >Hello World</a> 
-</h2>
+  <article
+  id="post-js/back_to_top"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+     
+    <div class="article-meta">
+      <a href="/2025/09/16/js/back_to_top/" class="article-date">
+  <time datetime="2025-09-16T15:18:47.526Z" itemprop="datePublished">2025-09-16</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">413</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">2 min</span>
+        </span>
+    </span>
+</div>
  
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2025/09/16/tags/%E6%90%AD%E5%BB%BA/index/" class="archive-article-date">
-  <time datetime="2025-09-16T15:18:47.535Z" itemprop="datePublished">09/16</time>
-</a>
+    </div>
       
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2025/09/16/tags/index/" class="archive-article-date">
-  <time datetime="2025-09-16T15:18:47.534Z" itemprop="datePublished">09/16</time>
-</a>
-      
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2025/09/16/js/toc/" class="archive-article-date">
-  <time datetime="2025-09-16T15:18:47.531Z" itemprop="datePublished">09/16</time>
-</a>
-      
 
-    </header>
-    
-    
-  </div>
-</article>
-      
   
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2025/09/16/js/pjax/" class="archive-article-date">
-  <time datetime="2025-09-16T15:18:47.530Z" itemprop="datePublished">09/16</time>
-</a>
-      
+    <div class="article-entry" itemprop="articleBody">
+       
+  $(document).ready(() => {
+    const $button = $('#back-to-top');
+    const $footer = $('footer.footer');
+    const $mainColumn = $('.column-main');
+    const $leftSidebar = $('.column-left');
+    const $rightSidebar = $('.column-right');
+    let lastScrollTop = 0;
+    const rightMargin = 20;
+    const bottomMargin = 20;
+    let lastState = null;
+    const state = {
+        base: {
+            classname: 'card has-text-centered',
+            left: '',
+            width: 64,
+            bottom: bottomMargin
+        }
+    };
+    state['desktop-hidden'] = Object.assign({}, state.base, {
+        classname: state.base.classname + ' rise-up'
+    });
+    state['desktop-visible'] = Object.assign({}, state['desktop-hidden'], {
+        classname: state['desktop-hidden'].classname + ' fade-in'
+    });
+    state['desktop-dock'] = Object.assign({}, state['desktop-visible'], {
+        classname: state['desktop-visible'].classname + ' fade-in is-rounded',
+        width: 40
+    });
+    state['mobile-hidden'] = Object.assign({}, state.base, {
+        classname: state.base.classname + ' fade-in',
+        right: rightMargin
+    });
+    state['mobile-visible'] = Object.assign({}, state['mobile-hidden'], {
+        classname: state['mobile-hidden'].classname + ' rise-up'
+    });
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2025/09/16/js/main/" class="archive-article-date">
-  <time datetime="2025-09-16T15:18:47.530Z" itemprop="datePublished">09/16</time>
-</a>
-      
+    function isStateEquals(prev, next) {
+        return ![].concat(Object.keys(prev), Object.keys(next)).some(key => {
+            return !Object.prototype.hasOwnProperty.call(prev, key)
+                || !Object.prototype.hasOwnProperty.call(next, key)
+                || next[key] !== prev[key];
+        });
+    }
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2025/09/16/js/insight/" class="archive-article-date">
-  <time datetime="2025-09-16T15:18:47.529Z" itemprop="datePublished">09/16</time>
-</a>
-      
+    function applyState(state) {
+        if (lastState !== null && isStateEquals(lastState, state)) {
+            return;
+        }
+        $button.attr('class', state.classname);
+        for (const prop in state) {
+            if (prop === 'classname') {
+                continue;
+            }
+            $button.css(prop, state[prop]);
+        }
+        lastState = state;
+    }
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2025/09/16/js/google_cse/" class="archive-article-date">
-  <time datetime="2025-09-16T15:18:47.528Z" itemprop="datePublished">09/16</time>
-</a>
-      
+    function isDesktop() {
+        return window.innerWidth >= 1078;
+    }
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2025/09/16/js/column/" class="archive-article-date">
-  <time datetime="2025-09-16T15:18:47.527Z" itemprop="datePublished">09/16</time>
-</a>
-      
+    function isTablet() {
+        return window.innerWidth >= 768 && !isDesktop();
+    }
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2025/09/16/js/back_to_top/" class="archive-article-date">
-  <time datetime="2025-09-16T15:18:47.526Z" itemprop="datePublished">09/16</time>
-</a>
-      
+    function isScrollUp() {
+        return $(window).scrollTop() < lastScrollTop && $(window).scrollTop() > 0;
+    }
 
-    </header>
-    
-    
-  </div>
-</article>
+    function hasLeftSidebar() {
+        return $leftSidebar.length > 0;
+    }
+
+    function hasRightSidebar() {
+        return $rightSidebar.length > 0;
+    }
+
+    function getRightSidebarBottom() {
+        if (!hasRightSidebar()) {
+            return 0;
+        }
+        return Math.max.apply(null, $rightSidebar.find('.widget').map(function() {
+            return $(this).offset().top + $(this).outerHeight(true);
+        }));
+    }
+
+    function getScrollTop() {
+        return $(window).scrollTop();
+    }
+
+    function getScrollBottom() {
+        return $(window).scrollTop() + $(window).height();
+    }
+
+    function getButtonWidth() {
+        return $button.outerWidth(true);
+    }
+
+    function getButtonHeight() {
+        return $button.outerHeight(true);
+    }
+
+    function updateScrollTop() {
+        lastScrollTop = $(window).scrollTop();
+    }
+
+    function update() {
+        // desktop mode or tablet mode with only right sidebar enabled
+        if (isDesktop() || (isTablet() && !hasLeftSidebar() && hasRightSidebar())) {
+            let nextState;
+            const padding = ($mainColumn.outerWidth() - $mainColumn.width()) / 2;
+            const maxLeft = $(window).width() - getButtonWidth() - rightMargin;
+            const maxBottom = $footer.offset().top + (getButtonHeight() / 2) + bottomMargin;
+            if (getScrollTop() === 0 || getScrollBottom() < getRightSidebarBottom() + padding + getButtonHeight()) {
+                nextState = state['desktop-hidden'];
+            } else if (getScrollBottom() < maxBottom) {
+                nextState = state['desktop-visible'];
+            } else {
+                nextState = Object.assign({}, state['desktop-dock'], {
+                    bottom: getScrollBottom() - maxBottom + bottomMargin
+                });
+            }
+
+            const left = $mainColumn.offset().left + $mainColumn.outerWidth() + padding;
+            nextState = Object.assign({}, nextState, {
+                left: Math.min(left, maxLeft)
+            });
+            applyState(nextState);
+        } else {
+            // mobile and tablet mode
+            if (!isScrollUp()) {
+                applyState(state['mobile-hidden']);
+            } else {
+                applyState(state['mobile-visible']);
+            }
+            updateScrollTop();
+        }
+    }
+
+    update();
+    $(window).resize(update);
+    $(window).scroll(update);
+
+    $('#back-to-top').on('click', () => {
+        if (CSS && CSS.supports && CSS.supports('(scroll-behavior: smooth)')) {
+            window.scroll({ top: 0, behavior: 'smooth' });
+        } else {
+            $('body, html').animate({ scrollTop: 0 }, 400);
+        }
+    });
+});
+ 
+      <!-- reward -->
       
+      <div id="reword-out">
+        <div id="reward-btn">
+          Donate
+        </div>
+      </div>
       
     </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2025/09/16/js/back_to_top/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
   </div>
-  
-  
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2025/09/16/js/column/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            (no title)
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2025/09/16/js/animation/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title"></div>
+      </a>
+    
+  </nav>
 
   
-  <nav class="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">下一页</a>
-  </nav>
+   
   
+   
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
 </section>
       <footer class="footer">
   <div class="outer">
@@ -411,6 +504,22 @@
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
 
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 <link
