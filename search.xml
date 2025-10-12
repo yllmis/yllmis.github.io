@@ -9,11 +9,6 @@
       </tags>
   </entry>
   <entry>
-    <title>利用Azure VPS搭建代理服务(Shadowsocks)</title>
-    <url>/2025/%E5%88%A9%E7%94%A8Azure-VPS%E6%90%AD%E5%BB%BA%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1-Shadowsocks/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/2025/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -30,5 +25,10 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>利用Azure VPS搭建代理服务(Shadowsocks)</title>
+    <url>/2025/%E5%88%A9%E7%94%A8Azure-VPS%E6%90%AD%E5%BB%BA%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1-Shadowsocks/</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>
