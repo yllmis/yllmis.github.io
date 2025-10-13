@@ -81,7 +81,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">0</span>
+            <span class="post-count">643</span>
         </span>
     </span>
 
@@ -90,20 +90,85 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">2 分钟</span>
         </span>
     </span>
 </div>
  
     </div>
       
+    <div class="tocbot"></div>
+
 
 
 
   
     <div class="article-entry" itemprop="articleBody">
        
-   
+  <h3 id="0-前提条件"><a href="#0-前提条件" class="headerlink" title="0. 前提条件"></a>0. 前提条件</h3><p>如果想要用免费的云服务器创建免费的虚拟机，利用 GitHub 学生包申请 Azure 账户的学生订阅，获取一年的额度。</p>
+<h3 id="1-创建Linux虚拟机"><a href="#1-创建Linux虚拟机" class="headerlink" title="1. 创建Linux虚拟机"></a>1. 创建Linux虚拟机</h3><p>在Azure上创建一个Linux虚拟机，我这里选择的映像是Ubuntu22.04，具体操作这里不在赘述，可以参考这篇知乎文章，我的区域选择在了East US，当初本意是为了使用Gemini。</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/629609870">大学生都可领取的免费服务器！使用Azure学生订阅创建免费的Linux和Windows服务器 - 知乎</a></p>
+<h3 id="2-连接到虚拟机并安装代理服务"><a href="#2-连接到虚拟机并安装代理服务" class="headerlink" title="2. 连接到虚拟机并安装代理服务"></a>2. 连接到虚拟机并安装代理服务</h3><h4 id="获取公网ip，并进入虚拟机"><a href="#获取公网ip，并进入虚拟机" class="headerlink" title="获取公网ip，并进入虚拟机"></a>获取公网ip，并进入虚拟机</h4><ul>
+<li>部署完成后，在虚拟机概览页面找到“公共ip地址”，可以通过windows命令进入。（可以参考我下面的步骤直接复制命令，或者按上面的知乎文章输命令进入，都是一样的）</li>
+</ul>
+<img src="/2025/%E5%88%A9%E7%94%A8Azure-VPS%E6%90%AD%E5%BB%BA%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1-Shadowsocks/image-20251013205546171.png" class="" alt="image-20251013205546171">
+
+<p>​	进入该选项中，选择编辑配置，将刚保存到~&#x2F;.ssh 文件中的密钥路径填入，然后直接复制该命令进入虚拟机</p>
+<img src="/2025/%E5%88%A9%E7%94%A8Azure-VPS%E6%90%AD%E5%BB%BA%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1-Shadowsocks/image-20251013205802648.png" class="" alt="image-20251013205802648">
+
+<ul>
+<li><p>更新系统</p>
+<p><code>sudo apt update &amp;&amp; sudo apt upgrade -y</code></p>
+</li>
+<li><p>安装代理服务（以 Shadowsocks-libev 为例）</p>
+<p><code>sudo apt install shadowsocks-libev -y</code></p>
+</li>
+<li><p>编辑配置文件</p>
+<p><code>sudo nano /etc/shadowsocks-libev/config.json</code>，<strong>注意：需要将里面原本的配置删除</strong></p>
+<p>接着将这段复制进去</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span>  </span><br><span class="line">	<span class="attr">&quot;server&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0.0.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;server_port&quot;</span><span class="punctuation">:</span> <span class="number">8388</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;password&quot;</span><span class="punctuation">:</span> <span class="string">&quot;your_strong_password_here&quot;</span><span class="punctuation">,</span><span class="comment">//记得修改密码</span></span><br><span class="line">    <span class="attr">&quot;timeout&quot;</span><span class="punctuation">:</span> <span class="number">300</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;method&quot;</span><span class="punctuation">:</span> <span class="string">&quot;chacha20-ietf-poly1305&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p><strong>注意：配置完后重启shadowsocks</strong> <code>sudo systemctl restart shadowsocks-libev</code></p>
+</li>
+<li><p>设置开机自启动</p>
+<p><code>sudo systemctl start shadowsocks-libev sudo systemctl enable shadowsocks-libev</code></p>
+</li>
+<li><p>开放防火墙端口</p>
+<ul>
+<li>回到 Azure 门户 → 虚拟机 → <strong>“网络”</strong> → <strong>“入站端口规则”</strong></li>
+<li>添加规则：允许 TCP 端口 <code>8388</code>（或你设置的端口）</li>
+</ul>
+</li>
+<li><p>检验</p>
+<ul>
+<li><p>输入<code>ss -tuln | grep 8388</code>检查监听端口  </p>
+<p>出现<code>LISTEN 0 128 0.0.0.0:8388 0.0.0.0:*</code>，如果显示<code>127.0.0.1:8388</code>可能是你的json文件<code>sever</code>写错了，或者是你没有重新启动shadowsocks。</p>
+</li>
+<li><p>在本地windows powershell中输入<code>Test-NetConnection ‘你的公网ip&#39; -Port 8388</code></p>
+<p>出现<code>TcpTestSucceeded : True</code>就是成功了。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="本地配置Shadowsocks"><a href="#本地配置Shadowsocks" class="headerlink" title="本地配置Shadowsocks"></a>本地配置Shadowsocks</h4><ol>
+<li><strong>下载客户端</strong><ul>
+<li>Windows：<a target="_blank" rel="noopener" href="https://github.com/shadowsocks/shadowsocks-windows">Shadowsocks-Windows</a></li>
+<li>macOS：<a target="_blank" rel="noopener" href="https://github.com/shadowsocks/ShadowsocksX-NG">ShadowsocksX-NG</a></li>
+<li>Android：<a target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.github.shadowsocks">Shadowsocks</a></li>
+</ul>
+</li>
+<li><strong>配置服务器信息</strong><ul>
+<li>服务器 IP：你的 Azure 公网 IP（如 <code>20.123.45.67</code>）</li>
+<li>端口：<code>8388</code></li>
+<li>密码：你在 config.json 中设置的密码</li>
+<li>加密方式：<code>chacha20-ietf-poly1305</code></li>
+</ul>
+</li>
+<li><strong>启用系统代理</strong>（或使用 PAC 模式）<ul>
+<li>启动后，浏览器或系统流量将通过代理。小飞机变成蓝色证明已经成功。</li>
+</ul>
+</li>
+</ol>
+ 
       <!-- reward -->
       
       <div id="reword-out">
@@ -178,6 +243,8 @@
 </div>
 
 <div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%AD%94%E6%B3%95/" rel="tag">魔法</a></li></ul>
+
     </footer>
   </div>
 
